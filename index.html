@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCart - Premium Electronics Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="6" fill="var(--color-primary)"/>
+                        <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>TechCart</span>
+                </div>
+                <nav class="nav" id="mainNav">
+                    <a href="#" data-page="home" class="nav-link active">Home</a>
+                    <a href="#" data-page="mobile-phones" class="nav-link">Mobile Phones</a>
+                    <a href="#" data-page="tablets" class="nav-link">Tablets</a>
+                    <a href="#" data-page="cart" class="nav-link cart-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        Cart <span class="cart-count">0</span>
+                    </a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="homePage" class="page active">
+            <div class="hero">
+                <div class="container">
+                    <h1 class="hero-title">Premium Electronics at Your Fingertips</h1>
+                    <p class="hero-subtitle">Discover the latest smartphones and tablets from top brands</p>
+                    <button class="btn btn--primary btn--lg" onclick="navigateToPage('mobile-phones')">Shop Now</button>
+                </div>
+            </div>
+            
+            <div class="container">
+                <section class="featured-section">
+                    <h2 class="section-title">Featured Products</h2>
+                    <div class="product-grid" id="featuredProducts"></div>
+                </section>
+
+                <section class="categories-section">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <div class="category-grid">
+                        <div class="category-card" onclick="navigateToPage('mobile-phones')">
+                            <div class="category-icon">📱</div>
+                            <h3>Mobile Phones</h3>
+                            <p>Latest smartphones from Apple, Samsung &amp; more</p>
+                        </div>
+                        <div class="category-card" onclick="navigateToPage('tablets')">
+                            <div class="category-icon">💻</div>
+                            <h3>Tablets</h3>
+                            <p>Powerful tablets for work and entertainment</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Mobile Phones Page -->
+        <section id="mobile-phonesPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Mobile Phones</h1>
+                    <p>Explore our collection of premium smartphones</p>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="brandFilter" class="form-label">Filter by Brand:</label>
+                        <select id="brandFilter" class="form-control">
+                            <option value="all">All Brands</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="OnePlus">OnePlus</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortFilter" class="form-label">Sort by:</label>
+                        <select id="sortFilter" class="form-control">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Rating: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="mobileProductsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Tablets Page -->
+        <section id="tabletsPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Tablets</h1>
+                    <p>Find the perfect tablet for your needs</p>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="tabletBrandFilter" class="form-label">Filter by Brand:</label>
+                        <select id="tabletBrandFilter" class="form-control">
+                            <option value="all">All Brands</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="OnePlus">OnePlus</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="tabletSortFilter" class="form-label">Sort by:</label>
+                        <select id="tabletSortFilter" class="form-control">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Rating: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="tabletProductsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Product Detail Page -->
+        <section id="productDetailPage" class="page">
+            <div class="container">
+                <button class="btn btn--secondary" onclick="goBack()">← Back</button>
+                <div class="product-detail" id="productDetailContent"></div>
+            </div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="cartPage" class="page">
+            <div class="container">
+                <h1>Shopping Cart</h1>
+                <div class="cart-content" id="cartContent"></div>
+            </div>
+        </section>
+
+        <!-- Checkout Page -->
+        <section id="checkoutPage" class="page">
+            <div class="container">
+                <h1>Checkout</h1>
+                <div class="checkout-layout">
+                    <div class="checkout-form">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Customer Information</h3>
+                                <form id="checkoutForm">
+                                    <div class="form-group">
+                                        <label for="customerName" class="form-label">Full Name *</label>
+                                        <input type="text" id="customerName" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerEmail" class="form-label">Email *</label>
+                                        <input type="email" id="customerEmail" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerPhone" class="form-label">Phone Number *</label>
+                                        <input type="tel" id="customerPhone" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="customerAddress" class="form-label">Delivery Address *</label>
+                                        <textarea id="customerAddress" class="form-control" rows="3" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shippingMethod" class="form-label">Shipping Method *</label>
+                                        <select id="shippingMethod" class="form-control" required>
+                                            <option value="standard">Standard Delivery (5-7 days) - Free</option>
+                                            <option value="express">Express Delivery (2-3 days) - ₹200</option>
+                                            <option value="next-day">Next Day Delivery - ₹500</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="paymentMethod" class="form-label">Payment Method *</label>
+                                        <select id="paymentMethod" class="form-control" required>
+                                            <option value="stripe">Stripe Test Mode</option>
+                                            <option value="paypal">PayPal Sandbox</option>
+                                            <option value="razorpay">Razorpay Test Mode</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Order Summary</h3>
+                                <div id="checkoutSummary"></div>
+                                <button class="btn btn--primary btn--full-width" onclick="proceedToPayment()">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="paymentModalTitle">Payment</h3>
+                    <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="paymentModalBody"></div>
+            </div>
+        </div>
+
+        <!-- Order Confirmation Page -->
+        <section id="confirmationPage" class="page">
+            <div class="container">
+                <div class="confirmation-content" id="confirmationContent"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TechCart. All rights reserved. | Test E-Commerce Store</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkzPqLxsPAZ_ODPtJ08nsIt0_YxsgNgCzuTQ&s
